@@ -1,13 +1,15 @@
+import './App.css';
 import React from 'react';
-import Rando from './Rando';
+import BrokenClick from './BrokenClick';
+// import Rando from './Rando';
+// import Button from "./Button";
 // import Demo from './Demo';
 // import Game from './Game';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Rando maxNum={7}/>
+      <BrokenClick/>
     </div>
   );
 }
