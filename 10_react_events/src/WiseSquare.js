@@ -8,7 +8,7 @@ class WiseSquare extends Component {
       "If you are not willing to be a fool, you can't become a master.",
       "Perhaps you are overvaluing what you don’t have and undervaluing what you do.",
       "The purpose of life is finding the largest burden that you can bear and bearing it.",
-      "The successful among us delay gratification. The successful among us bargain with the future.",
+      "The successful among us delay gratification and bargain with the future.",
       "Compare yourself to who you were yesterday, not to who someone else is today."
     ]
   };
