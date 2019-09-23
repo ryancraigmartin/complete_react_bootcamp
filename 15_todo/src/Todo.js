@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './Todo.css'
 export class Todo extends Component {
   constructor(props) {
     super(props)
@@ -8,9 +8,15 @@ export class Todo extends Component {
       task: this.props.task
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleToggle = this.handleToggle.bind(this)
     this.handleUpdate = this.handleUpdate.bind(this)
     this.handleRemove = this.handleRemove.bind(this)
     this.toggleForm = this.toggleForm.bind(this)
+  }
+  toggleForm() {
+    this.setState({
+      isEditing: !this.state.isEditing
+    })
   }
   handleRemove() {
     this.props.removeTodo(this.props.id)
@@ -25,17 +31,15 @@ export class Todo extends Component {
       [e.target.name]: e.target.value
     })
   }
-  toggleForm() {
-    this.setState({
-      isEditing: !this.state.isEditing
-    })
+  handleToggle(e) {
+    this.props.toggleTodo(this.props.id)
   }
   render() {
     let result
     if (this.state.isEditing) {
       result = (
-        <div>
-          <form onSubmit={this.handleUpdate}>
+        <div className="Todo">
+          <form onSubmit={this.handleUpdate} className="Todo-edit-form">
             <input
               type="text"
               name="task"
@@ -49,10 +53,21 @@ export class Todo extends Component {
       )
     } else {
       result = (
-        <div>
-          <button onClick={this.toggleForm}>Edit</button>
-          <button onClick={this.handleRemove}>X</button>
-          <li>{this.props.task}</li>
+        <div className="Todo">
+          <li
+            onClick={this.handleToggle}
+            className={this.props.completed ? ' Todo-task completed' : 'Todo-task'}
+          >
+            {this.props.task}
+          </li>
+          <div className="Todo-buttons">
+            <button onClick={this.toggleForm}>
+              <i class="fas fa-pen"></i>
+            </button>
+            <button onClick={this.handleRemove}>
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
         </div>
       )
     }
