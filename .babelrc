@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [ "es2015", { "modules": false } ],
+    "stage-2",
+    "react"
+  ],
+  "plugins": [
+  ],
+  "ignore": [
+    "./build$"
+  ],
+  "env": {
+    "test": {
+      "presets":[
+        "es2015",
+        "stage-2",
+        "react"
+      ]
+    }
+  }
+}
