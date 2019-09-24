@@ -8,21 +8,22 @@ class NewTodoForm extends Component {
     this.state = {
       task: ''
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(e) {
+
+  handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
-  handleSubmit(e) {
+
+  handleSubmit = e => {
     e.preventDefault()
     this.props.createTodo({ ...this.state, id: uuid(), completed: false })
     this.setState({
       task: ''
     })
   }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="NewTodoForm">

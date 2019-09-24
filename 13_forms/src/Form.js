@@ -6,21 +6,22 @@ class Form extends Component {
     this.state = {
       username: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(evt) {
+
+  handleSubmit = evt => {
     evt.preventDefault();
     alert(`You typed: ${this.state.username}`);
     this.setState({
       username: ""
     });
-  }
-  handleChange(evt) {
+  };
+
+  handleChange = evt => {
     this.setState({
       username: evt.target.value
     });
-  }
+  };
+
   render() {
     return (
       <div>

@@ -8,10 +8,9 @@ class MultipleForm extends Component {
       email: "",
       password: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(evt) {
+
+  handleSubmit = evt => {
     evt.preventDefault();
     alert(`You typed: ${this.state.username}`);
     this.setState({
@@ -19,12 +18,14 @@ class MultipleForm extends Component {
       email: "",
       password: ""
     });
-  }
-  handleChange(evt) {
+  };
+
+  handleChange = evt => {
     this.setState({
       [evt.target.name]: evt.target.value
     });
-  }
+  };
+
   render() {
     return (
       <div>

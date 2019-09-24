@@ -24,17 +24,15 @@ class Hangman extends Component {
       guessed: new Set(),
       answer: randomWord()
     };
-    this.handleGuess = this.handleGuess.bind(this);
-    this.restart = this.restart.bind(this);
   }
 
-  restart() {
+  restart = () => {
     this.setState({
       nWrong: 0,
       guessed: new Set(),
       answer: randomWord()
     });
-  }
+  };
 
   /** guessedWord: show current-state of word:
     if guessed letters are {a,p,e}, show "app_e" for "apple"
@@ -49,13 +47,13 @@ class Hangman extends Component {
     - add to guessed letters
     - if not in answer, increase number-wrong guesses
   */
-  handleGuess(evt) {
+  handleGuess = evt => {
     let ltr = evt.target.value;
     this.setState(st => ({
       guessed: st.guessed.add(ltr),
       nWrong: st.nWrong + (st.answer.includes(ltr) ? 0 : 1)
     }));
-  }
+  };
 
   /** generateButtons: returns an array of letter buttons to render */
   generateButtons() {

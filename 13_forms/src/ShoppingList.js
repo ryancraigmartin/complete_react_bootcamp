@@ -13,14 +13,15 @@ class ShoppingList extends Component {
         { name: "Avocados", qty: "5", id: uuid() }
       ]
     };
-    this.addItem = this.addItem.bind(this);
   }
-  addItem(item) {
+
+  addItem = item => {
     let newItem = { ...item, id: uuid() };
     this.setState(state => ({
       items: [...state.items, newItem]
     }));
-  }
+  };
+
   renderItems() {
     return (
       <ul>
